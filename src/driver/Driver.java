@@ -1,4 +1,5 @@
 package driver;
+import GUI.*;
 
 /**
  * @author Seth Roper
@@ -11,7 +12,8 @@ public class Driver {
 
   public static void main(String[] args) {
    
-    
+    VisualizerFrame frame = VisualizerFrame.FrameFactory();
+    frame.showFrame(true);
 
   }
 
