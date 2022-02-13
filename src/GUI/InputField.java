@@ -1,14 +1,18 @@
 package GUI;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
+import java.awt.event.ComponentListener;
 import java.awt.event.KeyEvent;
 import java.util.Locale;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
+import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.KeyStroke;
 import javax.swing.text.AbstractDocument;
@@ -34,8 +38,9 @@ public class InputField {
   private Document document;
 
   private AbstractDocument abstractDocument;
+  
+  private   JScrollPane inputScroll;
 
-  private final String i = "i";
 
   private InputField()
   {
@@ -45,7 +50,12 @@ public class InputField {
     this.filter = new InputFieldDocumentFilter();
     this.abstractDocument = (AbstractDocument) this.document;
     this.abstractDocument.setDocumentFilter(filter);
+    this.field.setFont(new Font("TimesNewRoman", Font.PLAIN, 10));
     this.field.setBackground(new Color(199, 238, 255));
+    this.inputScroll = new JScrollPane(this.getTextField());
+    inputScroll.setViewportBorder(null);
+    inputScroll.setBorder(null);
+    inputScroll.setPreferredSize(new Dimension(40, 20));
   }
 
   /**
@@ -58,6 +68,15 @@ public class InputField {
       
       return new InputField();
     }
+  
+  
+  /**
+   * @return the ScrollPane containg the text.
+   */
+  public JScrollPane getScrollPane()
+  {
+    return this.inputScroll;
+  }
 
    
   
@@ -69,6 +88,8 @@ public class InputField {
   {
     return this.field;
   }
+  
+  
 
  
 

@@ -12,8 +12,8 @@ public class Driver {
 
   public static void main(String[] args) {
    
-    VisualizerFrame frame = VisualizerFrame.FrameFactory();
-    frame.showFrame(true);
+    GuiContainer container = GuiContainer.createInstance();
+    container.showGui(true);
 
   }
 
